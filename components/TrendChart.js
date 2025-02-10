@@ -25,6 +25,7 @@ const furnaceNames = {
 };
 
 // 🔹 Her fırın için farklı renkler belirliyoruz
+// Renk paleti
 const colors = [
   "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FF8C33", "#8C33FF",
   "#33FFD5", "#D533FF", "#FFD533", "#33A1FF", "#FF3361", "#61FF33",
@@ -33,15 +34,26 @@ const colors = [
 
 const TrendChart = () => {
   const [graphData, setGraphData] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetch("/api/getData")
       .then((res) => res.json())
       .then((data) => {
-        // 🔹 Fırınları ID'ye göre sıralıyoruz
         const sortedData = data.sort((a, b) => a.furnaceId - b.furnaceId);
         setGraphData(sortedData);
       });
+
+    // Dark mode kontrolü
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -52,7 +64,7 @@ const TrendChart = () => {
         {graphData.map((furnace, index) => (
           <div key={furnace.furnaceId} className="p-1 bg-white dark:bg-gray-900 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold text-center mb-1 dark:text-white">
-              {furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`} {/* 🔹 ID yerine isim gösteriyoruz */}
+              {furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`}
             </h2>
             <div className="w-full h-30">
               <Line
@@ -80,9 +92,11 @@ const TrendChart = () => {
                     y: {
                       beginAtZero: true,
                       suggestedMax: 100,
-                      ticks: { color: "#ffffff" },
+                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" }, // 🔹 Dark mode ve light mode için farklı renk
                     },
-                    x: { ticks: { color: "#ffffff" } },
+                    x: { 
+                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" }, // 🔹 Dark mode ve light mode için farklı renk
+                    },
                   },
                 }}
               />
