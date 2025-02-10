@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[239],{1352:(_,n,u)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/about",function(){return u(2267)}])},2267:(_,n,u)=>{"use strict";u.r(n),u.d(n,{default:()=>e});var a=u(4848);function e(){return(0,a.jsx)("h1",{children:"Hakkımızda Sayfası"})}}},_=>{var n=n=>_(_.s=n);_.O(0,[636,593,792],()=>n(1352)),_N_E=_.O()}]);
