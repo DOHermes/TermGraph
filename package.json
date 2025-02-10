@@ -2,12 +2,13 @@
   "name": "vercel-trend-grafik",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+"scripts": {
+  "dev": "next dev --turbopack",
+  "build": "next build",
+  "start": "next build && next start",
+  "lint": "next lint"
+}
+,
   "dependencies": {
     "chart.js": "^4.4.7",
     "mongoose": "^8.10.0",
