@@ -1,0 +1,3 @@
+{
+  "/api/deleteAll": "pages/api/deleteAll.js"
+}

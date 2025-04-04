@@ -570,23 +570,24 @@ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$d
 // 🔹 Fırın ID'leri yerine gösterilecek isimleri burada belirliyoruz
 const furnaceNames = {
     1: "Giriş 1",
-    2: "1. Bölge",
-    3: "2. Bölge",
-    4: "Giriş 2",
-    5: "Soğutma",
-    6: "3. Bölge",
-    7: "4. Bölge Alt",
-    8: "4. Bölge Üst",
-    9: "5. Bölge Alt",
-    10: "5. Bölge Üst",
-    11: "6. Bölge Alt",
-    12: "6. Bölge Üst",
+    2: "Giriş 2",
+    3: "1. Bölge",
+    4: "2. Bölge",
+    5: "3. Bölge",
+    6: "4. Bölge Alt",
+    7: "4. Bölge Üst",
+    8: "5. Bölge Alt",
+    9: "5. Bölge Üst",
+    10: "6. Bölge Alt",
+    11: "6. Bölge Üst",
+    12: "Soğutma",
     13: "Kritik Soğutma",
     14: "Çıkış 1",
     15: "Çıkış 2",
     16: "Çıkış 3"
 };
 // 🔹 Her fırın için farklı renkler belirliyoruz
+// Renk paleti
 const colors = [
     "#FF5733",
     "#33FF57",
@@ -608,19 +609,33 @@ const colors = [
 const TrendChart = ()=>{
     _s();
     const [graphData, setGraphData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [isDarkMode, setIsDarkMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "TrendChart.useEffect": ()=>{
             fetch("/api/getData").then({
                 "TrendChart.useEffect": (res)=>res.json()
             }["TrendChart.useEffect"]).then({
                 "TrendChart.useEffect": (data)=>{
-                    // 🔹 Fırınları ID'ye göre sıralıyoruz
                     const sortedData = data.sort({
                         "TrendChart.useEffect.sortedData": (a, b)=>a.furnaceId - b.furnaceId
                     }["TrendChart.useEffect.sortedData"]);
                     setGraphData(sortedData);
                 }
             }["TrendChart.useEffect"]);
+            // Dark mode kontrolü
+            const checkDarkMode = {
+                "TrendChart.useEffect.checkDarkMode": ()=>{
+                    setIsDarkMode(document.documentElement.classList.contains("dark"));
+                }
+            }["TrendChart.useEffect.checkDarkMode"];
+            checkDarkMode();
+            const observer = new MutationObserver(checkDarkMode);
+            observer.observe(document.documentElement, {
+                attributes: true
+            });
+            return ({
+                "TrendChart.useEffect": ()=>observer.disconnect()
+            })["TrendChart.useEffect"];
         }
     }["TrendChart.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -631,7 +646,7 @@ const TrendChart = ()=>{
                 children: "Fırın Sıcaklık Takibi"
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 49,
+                lineNumber: 61,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -641,13 +656,10 @@ const TrendChart = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-xl font-semibold text-center mb-1 dark:text-white",
-                                children: [
-                                    furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`,
-                                    " "
-                                ]
-                            }, void 0, true, {
+                                children: furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`
+                            }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 54,
+                                lineNumber: 66,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -680,45 +692,45 @@ const TrendChart = ()=>{
                                                 beginAtZero: true,
                                                 suggestedMax: 100,
                                                 ticks: {
-                                                    color: "#ffffff"
+                                                    color: isDarkMode ? "#ffffff" : "#000000"
                                                 }
                                             },
                                             x: {
                                                 ticks: {
-                                                    color: "#ffffff"
+                                                    color: isDarkMode ? "#ffffff" : "#000000"
                                                 }
                                             }
                                         }
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/components/TrendChart.js",
-                                    lineNumber: 58,
+                                    lineNumber: 70,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 57,
+                                lineNumber: 69,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, furnace.furnaceId, true, {
                         fileName: "[project]/components/TrendChart.js",
-                        lineNumber: 53,
+                        lineNumber: 65,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 51,
+                lineNumber: 63,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/TrendChart.js",
-        lineNumber: 48,
+        lineNumber: 60,
         columnNumber: 5
     }, this);
 };
-_s(TrendChart, "pmamvzrrixu6Uz+4Mr1ZIumSAC8=");
+_s(TrendChart, "T5gxNc7NpQyKSrTsB2moEHTtL/s=");
 _c = TrendChart;
 const __TURBOPACK__default__export__ = TrendChart;
 var _c;
@@ -788,8 +800,10 @@ __turbopack_esm__({
     "default": (()=>Home)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/head.js [client] (ecmascript)"); // 🔹 Head bileşenini ekliyoruz
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TrendChart$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/TrendChart.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$DarkModeToggle$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/DarkModeToggle.js [client] (ecmascript)");
+;
 ;
 ;
 ;
@@ -797,6 +811,45 @@ function Home() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen flex flex-col items-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("title", {
+                        children: "Hermes Roller Fırın 2 - Veri Takip Sistemi"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/index.js",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
+                        name: "description",
+                        content: "Hermes Roller Fırın 2 sıcaklık verilerini takip edin."
+                    }, void 0, false, {
+                        fileName: "[project]/pages/index.js",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/index.js",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
+                        rel: "icon",
+                        href: "/favicon.ico"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/index.js",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/pages/index.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
                 className: "w-full p-4 flex justify-between items-center bg-white dark:bg-gray-900 shadow-md",
                 children: [
@@ -805,30 +858,30 @@ function Home() {
                         children: "🔥 Hermes Roller Fırın 2 🔥"
                     }, void 0, false, {
                         fileName: "[project]/pages/index.js",
-                        lineNumber: 8,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$DarkModeToggle$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/pages/index.js",
-                        lineNumber: 9,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/index.js",
-                lineNumber: 7,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "w-full",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TrendChart$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/pages/index.js",
-                    lineNumber: 13,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/index.js",
-                lineNumber: 12,
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -837,18 +890,18 @@ function Home() {
                     children: "© 2025 - Data Otomasyon"
                 }, void 0, false, {
                     fileName: "[project]/pages/index.js",
-                    lineNumber: 17,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/index.js",
-                lineNumber: 16,
+                lineNumber: 25,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/index.js",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 5
     }, this);
 }
@@ -863,7 +916,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-const PAGE_PATH = "/";
+const PAGE_PATH = "/about";
 (window.__NEXT_P = window.__NEXT_P || []).push([
     PAGE_PATH,
     ()=>{

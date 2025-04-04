@@ -2,6 +2,6 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/myusu/Masa%C3%BCst%C3%BC/VercelTrendGraph/TermGraph/pages/_app.js"],"sourcesContent":["import \"@/styles/globals.css\"; // Tailwind'i içe aktar\r\n\r\nexport default function App({ Component, pageProps }) {\r\n  return <Component {...pageProps} />;\r\n}\r\n"],"names":[],"mappings":";;;;;;AAEe,SAAS,IAAI,EAAE,SAAS,EAAE,SAAS,EAAE;IAClD,qBAAO,qKAAC;QAAW,GAAG,SAAS;;;;;;AACjC"}},
+    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/myusu/Masa%C3%BCst%C3%BC/term%20son/TermGraph/pages/_app.js"],"sourcesContent":["import \"@/styles/globals.css\"; // Tailwind'i içe aktar\r\n\r\nexport default function App({ Component, pageProps }) {\r\n  return <Component {...pageProps} />;\r\n}\r\n"],"names":[],"mappings":";;;;;;AAEe,SAAS,IAAI,EAAE,SAAS,EAAE,SAAS,EAAE;IAClD,qBAAO,qKAAC;QAAW,GAAG,SAAS;;;;;;AACjC"}},
     {"offset": {"line": 30, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
 }
