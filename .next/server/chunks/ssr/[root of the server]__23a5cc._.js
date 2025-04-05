@@ -133,10 +133,11 @@ const furnaceNames = {
     10: "6. Bölge Alt",
     11: "6. Bölge Üst",
     12: "Soğutma",
-    13: "Kritik Soğutma",
-    14: "Çıkış 1",
-    15: "Çıkış 2",
-    16: "Çıkış 3"
+    13: "Kritik Soğutma Alt",
+    14: "Kritik Soğutma Üst",
+    15: "Çıkış 1",
+    16: "Çıkış 2",
+    17: "Çıkış 3"
 };
 // 🔹 Her fırın için farklı renkler belirliyoruz
 // Renk paleti
@@ -156,7 +157,8 @@ const colors = [
     "#D5FF33",
     "#33FF8C",
     "#FF33D5",
-    "#3361FF"
+    "#3361FF",
+    "#FFD533"
 ];
 const TrendChart = ()=>{
     const [graphData, setGraphData] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
@@ -185,7 +187,7 @@ const TrendChart = ()=>{
                 children: "Fırın Sıcaklık Takibi"
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -198,7 +200,7 @@ const TrendChart = ()=>{
                                 children: furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`
                             }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 66,
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -243,29 +245,29 @@ const TrendChart = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/components/TrendChart.js",
-                                    lineNumber: 70,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, furnace.furnaceId, true, {
                         fileName: "[project]/components/TrendChart.js",
-                        lineNumber: 65,
+                        lineNumber: 66,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/TrendChart.js",
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 };

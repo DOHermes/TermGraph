@@ -581,10 +581,11 @@ const furnaceNames = {
     10: "6. Bölge Alt",
     11: "6. Bölge Üst",
     12: "Soğutma",
-    13: "Kritik Soğutma",
-    14: "Çıkış 1",
-    15: "Çıkış 2",
-    16: "Çıkış 3"
+    13: "Kritik Soğutma Alt",
+    14: "Kritik Soğutma Üst",
+    15: "Çıkış 1",
+    16: "Çıkış 2",
+    17: "Çıkış 3"
 };
 // 🔹 Her fırın için farklı renkler belirliyoruz
 // Renk paleti
@@ -604,7 +605,8 @@ const colors = [
     "#D5FF33",
     "#33FF8C",
     "#FF33D5",
-    "#3361FF"
+    "#3361FF",
+    "#FFD533"
 ];
 const TrendChart = ()=>{
     _s();
@@ -646,7 +648,7 @@ const TrendChart = ()=>{
                 children: "Fırın Sıcaklık Takibi"
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -659,7 +661,7 @@ const TrendChart = ()=>{
                                 children: furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`
                             }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 66,
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -704,29 +706,29 @@ const TrendChart = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/components/TrendChart.js",
-                                    lineNumber: 70,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/TrendChart.js",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, furnace.furnaceId, true, {
                         fileName: "[project]/components/TrendChart.js",
-                        lineNumber: 65,
+                        lineNumber: 66,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/TrendChart.js",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/TrendChart.js",
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 };
@@ -916,7 +918,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-const PAGE_PATH = "/about";
+const PAGE_PATH = "/";
 (window.__NEXT_P = window.__NEXT_P || []).push([
     PAGE_PATH,
     ()=>{
