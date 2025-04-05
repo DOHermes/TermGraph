@@ -7,17 +7,17 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 // 🔹 Fırın ID'leri yerine gösterilecek isimleri burada belirliyoruz
 const furnaceNames = {
   1: "Giriş 1",
-  2: "Giriş 2",
-  3: "1. Bölge",
-  4: "2. Bölge",
-  5: "3. Bölge",
-  6: "4. Bölge Alt",
-  7: "4. Bölge Üst",
-  8: "5. Bölge Alt",
-  9: "5. Bölge Üst",
-  10: "6. Bölge Alt",
-  11: "6. Bölge Üst",
-  12: "Soğutma",
+  2: "1. Bölge",
+  3: "2. Bölge",
+  4: "Giriş 2",
+  5: "Soğutma",
+  6: "3. Bölge",
+  7: "4. Bölge Alt",
+  8: "4. Bölge Üst",
+  9: "5. Bölge Alt",
+  10: "5. Bölge Üst",
+  11: "6. Bölge Alt",
+  12: "6. Bölge Üst",
   13: "Kritik Soğutma",
   14: "Çıkış 1",
   15: "Çıkış 2",
@@ -57,7 +57,7 @@ const TrendChart = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-2">
+    <div className="w-full mx-auto p-2">
       <h1 className="text-3xl font-bold text-center mb-2 dark:text-white">Fırın Sıcaklık Takibi</h1>
       
       <div className="grid grid-cols-1 gap-6">
