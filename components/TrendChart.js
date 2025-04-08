@@ -70,7 +70,15 @@ const TrendChart = () => {
             <div className="w-full h-30">
               <Line
                 data={{
-                  labels: furnace.data.map(d => new Date(d.timestamp).toLocaleTimeString()),
+                  labels: furnace.data.map(d =>
+                    new Date(d.timestamp).toLocaleString("tr-TR", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit"
+                    })
+                  ),
                   datasets: [
                     {
                       label: furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`,
