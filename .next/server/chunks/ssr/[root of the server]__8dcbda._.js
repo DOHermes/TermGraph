@@ -381,6 +381,45 @@ function DarkModeToggle() {
     }, this);
 }
 }}),
+"[project]/components/LedIndicator.js [ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__ = __turbopack_import__("[externals]/react/jsx-dev-runtime [external] (react/jsx-dev-runtime, cjs)");
+;
+const LedIndicator = ({ label, isOn })=>{
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+        className: "flex items-center gap-2",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: `w-4 h-4 rounded-full border-2 ${isOn ? "bg-green-500 border-green-700" : "bg-gray-400 border-gray-500"}`,
+                title: label
+            }, void 0, false, {
+                fileName: "[project]/components/LedIndicator.js",
+                lineNumber: 4,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                className: "text-sm",
+                children: label
+            }, void 0, false, {
+                fileName: "[project]/components/LedIndicator.js",
+                lineNumber: 10,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/LedIndicator.js",
+        lineNumber: 3,
+        columnNumber: 7
+    }, this);
+};
+const __TURBOPACK__default__export__ = LedIndicator;
+}}),
 "[project]/pages/index.js [ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -393,11 +432,7 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$run
 var __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$head$2e$js__$5b$external$5d$__$28$next$2f$head$2e$js$2c$__cjs$29$__ = __turbopack_import__("[externals]/next/head.js [external] (next/head.js, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TrendChart$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/TrendChart.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$DarkModeToggle$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/DarkModeToggle.js [ssr] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '../components/LedIndicator'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$LedIndicator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/LedIndicator.js [ssr] (ecmascript)"); // ✅ yeni bileşeni ekliyoruz
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_import__("[externals]/react [external] (react, cjs)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TrendChart$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__
@@ -500,7 +535,7 @@ function Home() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                 className: "w-full max-w-6xl px-4 py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3",
-                children: Object.keys(coilLabels).map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(LedIndicator, {
+                children: Object.keys(coilLabels).map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$LedIndicator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                         label: coilLabels[key],
                         isOn: coilStates[key] === true
                     }, key, false, {
@@ -551,4 +586,4 @@ __turbopack_async_result__();
 
 };
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__23a5cc._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__8dcbda._.js.map

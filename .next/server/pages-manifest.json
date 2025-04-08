@@ -1,6 +1,9 @@
 {
+  "/api/getCoils": "pages/api/getCoils.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/api/updateCoils": "pages/api/updateCoils.js",
   "/": "pages/index.js",
   "/api/getData": "pages/api/getData.js"
 }

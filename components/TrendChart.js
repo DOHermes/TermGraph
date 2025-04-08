@@ -1,10 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-// 🔹 Fırın ID'leri yerine gösterilecek isimleri burada belirliyoruz
+// 🔹 Fırın ID'lerine karşılık gelen açıklamalar
 const furnaceNames = {
   1: "Giriş 1",
   2: "Giriş 2",
@@ -22,11 +39,10 @@ const furnaceNames = {
   14: "Kritik Soğutma Üst",
   15: "Çıkış 1",
   16: "Çıkış 2",
-  17: "Çıkış 3"
+  17: "Çıkış 3",
 };
 
-// 🔹 Her fırın için farklı renkler belirliyoruz
-// Renk paleti
+// 🔹 Renk paleti
 const colors = [
   "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FF8C33", "#8C33FF",
   "#33FFD5", "#D533FF", "#FFD533", "#33A1FF", "#FF3361", "#61FF33",
@@ -36,6 +52,8 @@ const colors = [
 const TrendChart = () => {
   const [graphData, setGraphData] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     fetch("/api/getData")
@@ -57,12 +75,47 @@ const TrendChart = () => {
     return () => observer.disconnect();
   }, []);
 
+  // 🔍 Tarih filtresi uygulanmış veriler
+  const filteredData = graphData.map((furnace) => ({
+    ...furnace,
+    data: furnace.data.filter((d) => {
+      const time = new Date(d.timestamp).getTime();
+      const start = startDate ? new Date(startDate).getTime() : -Infinity;
+      const end = endDate ? new Date(endDate).getTime() : Infinity;
+      return time >= start && time <= end;
+    }),
+  }));
+
   return (
-    <div className="w-full max-w-5xl mx-auto p-2">
-      <h1 className="text-3xl font-bold text-center mb-2 dark:text-white">Fırın Sıcaklık Takibi</h1>
-      
+    <div className="w-full max-w-6xl mx-auto p-2">
+      <h1 className="text-3xl font-bold text-center mb-4 dark:text-white">
+        Fırın Sıcaklık Takibi
+      </h1>
+
+      {/* 🔹 Tarih Aralığı Girişleri */}
+      <div className="flex justify-center gap-4 mb-4 items-center flex-wrap">
+        <label className="dark:text-white">
+          Başlangıç:
+          <input
+            type="datetime-local"
+            className="ml-2 p-1 rounded border dark:bg-gray-800 dark:text-white"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </label>
+        <label className="dark:text-white">
+          Bitiş:
+          <input
+            type="datetime-local"
+            className="ml-2 p-1 rounded border dark:bg-gray-800 dark:text-white"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </label>
+      </div>
+
       <div className="grid grid-cols-1 gap-6">
-        {graphData.map((furnace, index) => (
+        {filteredData.map((furnace, index) => (
           <div key={furnace.furnaceId} className="p-1 bg-white dark:bg-gray-900 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold text-center mb-1 dark:text-white">
               {furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`}
@@ -76,7 +129,7 @@ const TrendChart = () => {
                       month: "2-digit",
                       year: "2-digit",
                       hour: "2-digit",
-                      minute: "2-digit"
+                      minute: "2-digit",
                     })
                   ),
                   datasets: [
@@ -101,10 +154,10 @@ const TrendChart = () => {
                     y: {
                       beginAtZero: true,
                       suggestedMax: 100,
-                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" }, // 🔹 Dark mode ve light mode için farklı renk
+                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" },
                     },
-                    x: { 
-                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" }, // 🔹 Dark mode ve light mode için farklı renk
+                    x: {
+                      ticks: { color: isDarkMode ? "#ffffff" : "#000000" },
                     },
                   },
                 }}

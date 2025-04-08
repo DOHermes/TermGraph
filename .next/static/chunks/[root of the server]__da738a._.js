@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/[root of the server]__0a3993._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/[root of the server]__da738a._.js", {
 
 "[turbopack]/browser/dev/hmr-client/websocket.ts [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -859,6 +859,51 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
+"[project]/components/LedIndicator.js [client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+;
+const LedIndicator = ({ label, isOn })=>{
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center gap-2",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: `w-4 h-4 rounded-full border-2 ${isOn ? "bg-green-500 border-green-700" : "bg-gray-400 border-gray-500"}`,
+                title: label
+            }, void 0, false, {
+                fileName: "[project]/components/LedIndicator.js",
+                lineNumber: 4,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                className: "text-sm",
+                children: label
+            }, void 0, false, {
+                fileName: "[project]/components/LedIndicator.js",
+                lineNumber: 10,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/LedIndicator.js",
+        lineNumber: 3,
+        columnNumber: 7
+    }, this);
+};
+_c = LedIndicator;
+const __TURBOPACK__default__export__ = LedIndicator;
+var _c;
+__turbopack_refresh__.register(_c, "LedIndicator");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
 "[project]/pages/index.js [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -871,11 +916,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/head.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TrendChart$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/TrendChart.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$DarkModeToggle$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/DarkModeToggle.js [client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '../components/LedIndicator'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$LedIndicator$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/LedIndicator.js [client] (ecmascript)"); // ✅ yeni bileşeni ekliyoruz
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
 ;
 var _s = __turbopack_refresh__.signature();
@@ -982,7 +1023,7 @@ function Home() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 className: "w-full max-w-6xl px-4 py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3",
-                children: Object.keys(coilLabels).map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(LedIndicator, {
+                children: Object.keys(coilLabels).map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$LedIndicator$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                         label: coilLabels[key],
                         isOn: coilStates[key] === true
                     }, key, false, {
@@ -1040,7 +1081,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-const PAGE_PATH = "/about";
+const PAGE_PATH = "/";
 (window.__NEXT_P = window.__NEXT_P || []).push([
     PAGE_PATH,
     ()=>{
@@ -1066,4 +1107,4 @@ __turbopack_require__("[next]/entry/page-loader.ts { PAGE => \"[project]/pages/i
 }}),
 }]);
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__0a3993._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__da738a._.js.map

@@ -1,0 +1,3 @@
+{
+  "/api/getCoils": "pages/api/getCoils.js"
+}
