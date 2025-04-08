@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       const data = await FurnaceData.aggregate([
         { $sort: { timestamp: -1 } }, // En son verileri al
         { $group: { _id: "$furnaceId", data: { $push: "$$ROOT" } } }, // Fırın ID'lerine göre grupla
-        { $project: { furnaceId: "$_id", data: { $slice: ["$data", 20] } } }, // Her fırından son 20 veriyi al
+        { $project: { furnaceId: "$_id", data: { $slice: ["$data", 2000] } } }, // Her fırından son 20 veriyi al
       ]);
       res.status(200).json(data);
     } catch (error) {
