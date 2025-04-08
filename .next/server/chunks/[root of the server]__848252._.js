@@ -78,7 +78,7 @@ async function handler(req, res) {
                         data: {
                             $slice: [
                                 "$data",
-                                20
+                                2000
                             ]
                         }
                     }

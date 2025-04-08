@@ -67,7 +67,7 @@ const TrendChart = () => {
             <h2 className="text-xl font-semibold text-center mb-1 dark:text-white">
               {furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`}
             </h2>
-            <div className="w-full h-30">
+            <div className="w-full h-80">
               <Line
                 data={{
                   labels: furnace.data.map(d =>

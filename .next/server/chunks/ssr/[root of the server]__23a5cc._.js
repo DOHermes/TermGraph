@@ -204,10 +204,16 @@ const TrendChart = ()=>{
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "w-full h-30",
+                                className: "w-full h-80",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$chartjs$2d$2__$5b$external$5d$__$28$react$2d$chartjs$2d$2$2c$__esm_import$29$__["Line"], {
                                     data: {
-                                        labels: furnace.data.map((d)=>new Date(d.timestamp).toLocaleTimeString()),
+                                        labels: furnace.data.map((d)=>new Date(d.timestamp).toLocaleString("tr-TR", {
+                                                day: "2-digit",
+                                                month: "2-digit",
+                                                year: "2-digit",
+                                                hour: "2-digit",
+                                                minute: "2-digit"
+                                            })),
                                         datasets: [
                                             {
                                                 label: furnaceNames[furnace.furnaceId] || `Fırın ${furnace.furnaceId}`,

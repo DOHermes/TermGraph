@@ -2,6 +2,5 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/api/getData": "pages/api/getData.js",
-  "/api/postFromCsharp": "pages/api/postFromCsharp.js"
+  "/api/getData": "pages/api/getData.js"
 }
