@@ -13,7 +13,9 @@ export default async function handler(req, res) {
       { $sort: { timestamp: -1 } },
       { $group: { _id: "$furnaceId", data: { $push: "$$ROOT" } } },
       { $project: { furnaceId: "$_id", data: { $slice: ["$data", 2000] } } },
-    ]);
+    ], {
+      allowDiskUse: true 
+    });
 
     // Her ihtimale karşı array değilse boş array döndür
     const data = Array.isArray(result) ? result : [];
