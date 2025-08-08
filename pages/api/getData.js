@@ -9,16 +9,25 @@ export default async function handler(req, res) {
   try {
     await connectDB();
 
-    const result = await FurnaceData.aggregate([
-      { $sort: { timestamp: -1 } },
-      { $group: { _id: "$furnaceId", data: { $push: "$$ROOT" } } },
-      { $project: { furnaceId: "$_id", data: { $slice: ["$data", 2000] } } },
-    ]).option({ allowDiskUse: true });
+    // Tüm fırın ID'lerini çek
+    const furnaceIds = await FurnaceData.distinct("furnaceId");
 
-    // Her ihtimale karşı array değilse boş array döndür
-    const data = Array.isArray(result) ? result : [];
+    // Her fırının son 2000 kaydını çek
+    const allData = [];
 
-    res.status(200).json(data);
+    for (const id of furnaceIds) {
+      const data = await FurnaceData.find({ furnaceId: id })
+        .sort({ timestamp: -1 })
+        .limit(2000)
+        .lean(); // gereksiz mongoose metadata'yı atar
+
+      allData.push({
+        furnaceId: id,
+        data: data.reverse() // eskiden yeniye sıralamak için
+      });
+    }
+
+    res.status(200).json(allData);
   } catch (error) {
     console.error("API getData error:", error);
     res.status(500).json({
